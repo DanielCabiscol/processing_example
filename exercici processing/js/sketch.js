@@ -1,12 +1,12 @@
 $(document).ready(function(){
    $("#nit").click(function(){
-       bg = loadImage("/night.jpg");
+       bg = loadImage("/img/night.jpg");
        colorMar = color(14, 31, 88);
        colorSol = color(214,221,244);
    });
     
     $("#dia").click(function(){
-       bg = loadImage("/sky.jpg");
+       bg = loadImage("/img/sky.jpg");
        colorMar = color(45,103, 170);
        colorSol = color(255,204,0);
    });
@@ -41,7 +41,7 @@ var rapidesa = 0.01;
 var onades = 0.01;
 
 function preload() {
-    soMar = loadSound('sea.mp3');
+    soMar = loadSound('sounds/sea.mp3');
 }
 
 
@@ -51,7 +51,7 @@ function setup() {
     soMar.setVolume(0.1);
     soMar.play();
     
-    bg = loadImage("/sky.jpg");
+    bg = loadImage("/img/sky.jpg");
     
     colorMar = color(45,103, 170);
     colorSol = color(255,204,0);
