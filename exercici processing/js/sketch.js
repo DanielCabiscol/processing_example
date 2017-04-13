@@ -1,12 +1,12 @@
 $(document).ready(function(){
    $("#nit").click(function(){
-       bg = loadImage("/img/night.jpg");
+       bg = loadImage("night.jpg");
        colorMar = color(14, 31, 88);
        colorSol = color(214,221,244);
    });
     
     $("#dia").click(function(){
-       bg = loadImage("/img/sky.jpg");
+       bg = loadImage("sky.jpg");
        colorMar = color(45,103, 170);
        colorSol = color(255,204,0);
    });
@@ -36,7 +36,7 @@ $(document).ready(function(){
     });
 });
 
-var y = 0.0; 
+var yNoise = 0.0; 
 var rapidesa = 0.01;
 var onades = 0.01;
 
@@ -51,7 +51,7 @@ function setup() {
     soMar.setVolume(0.1);
     soMar.play();
     
-    bg = loadImage("/img/sky.jpg");
+    bg = loadImage("sky.jpg");
     
     colorMar = color(45,103, 170);
     colorSol = color(255,204,0);
@@ -70,21 +70,21 @@ function draw() {
   // ------ Comença el SHAPE de l'onada
   beginShape(); 
   
-  var x = 0; 
+  var xNoise = 0; 
   
   // Iterate over horizontal pixels
   for (var x = 0; x <= width; x += 10) {
-    // Calculate a y value according to noise, map to 
+    // calculem la Y acord amb el valor del NOISE
     
-    var y = map(noise(x, y), 0, 1, 400,600);
+    var y = map(noise(xNoise, yNoise), 0, 1, 400,600);
     
-    // Set the vertex
+    // Setejem el vertex
     vertex(x, y); 
-    // Increment x dimension for noise
-    x += onades;
+    // incrementem la X del NOISE de l'onada
+    xNoise += onades;
   }
-  // increment y dimension for noise
-  y += rapidesa;
+  // incrementem la Y del NOISE de l'onada
+  yNoise += rapidesa;
   vertex(width, height);
   vertex(0, height);
   endShape(CLOSE); 
@@ -97,5 +97,4 @@ function draw() {
  ellipse(150,150,200,200);
  // END SOL
     
- //
 }
